@@ -16,8 +16,6 @@ const sendEmail = (options) => {
       type: "login",
       user: process.env.EMAIL_USERNAME,
       pass: process.env.EMAIL_PASSWORD,
-      //   pass: 'ESIVZAE5N7BP32P2247T'
-      // pass: '987leena9876'
     },
   });
 
