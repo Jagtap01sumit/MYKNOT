@@ -3,7 +3,8 @@ require("dotenv").config({path:"./config.env"})
 const connectDB=require("./config/db")
 const ErrorResponse=require("./middlewares/ErrorResponse")
 const cookieParser=require("cookie-parser")
-const cors=require("cors")
+const cors=require("cors");
+const path=require("path");
 
 
 connectDB()
@@ -17,6 +18,10 @@ app.use(cors({
     origin:"http://localhost:3000",
     credentials:true
 }))
+
+app.use("/public",express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public')));
+
 
 app.use(express.json({limit:"50mb"}))
 app.use(express.urlencoded({limit:"50mb",extended:true}))
@@ -32,6 +37,11 @@ app.use("/api/cart",require("./routes/cartRoutes.js"))
 app.use("/api/payement",require("./routes/payementRoutes.js"))
 app.use("/api/orders",require("./routes/orderRoutes.js"))
 app.use("/api/category",require("./routes/categoryRoutes.js"))
+
+app.get("*", (req, res) => {
+    let url = path.join(__dirname, '/public/', 'index.html');
+    res.sendFile(url);
+  });
 
 app.use(ErrorResponse)
 
