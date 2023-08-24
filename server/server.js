@@ -15,7 +15,7 @@ const app=express()
 //     // credentials: true
 // }))
 app.use(cors({
-    origin:["http://localhost:3000",`http://localhost:${process.env.PORT}`,"https://myknot-pstc.vercel.app/"],
+    origin:"https://myknot-pstc.vercel.app/",
     credentials:true
 }))
 
