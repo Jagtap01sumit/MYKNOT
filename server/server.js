@@ -14,8 +14,10 @@ const app=express()
 //     origin:"https://myknot-official.netlify.app",
 //     // credentials: true
 // }))
-app.use(cors());
-
+app.use(cors({
+    origin: "https://myknot-pstc.vercel.app",
+    credentials: true
+}))
 app.use("/public",express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname, '/public')));
 
