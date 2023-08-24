@@ -15,7 +15,7 @@ const app=express()
 //     // credentials: true
 // }))
 app.use(cors({
-    origin:"https://myknot-official.vercel.app"
+    origin:["https://myknot-official.vercel.app","https://myknot-pstc.vercel.app/","http://localhsot:3000"]
     credentials:true
 }))
 
